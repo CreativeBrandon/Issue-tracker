@@ -1,0 +1,11 @@
+aside .App-logo {
+    height: 20px;
+}
+
+aside nav {
+    margin: 10px 0;
+}
+
+aside nav a {
+    padding: 0 5px;
+}
