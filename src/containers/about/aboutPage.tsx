@@ -5,7 +5,11 @@ interface AboutPageProps {
     title: string
 }
 
-export class AboutPage extends React.Component<AboutPageProps, {}> {
+interface State {
+    data: {}
+}
+
+export class AboutPage extends React.Component<AboutPageProps, State> {
 
     constructor(props: AboutPageProps) {
         super(props)
@@ -32,3 +36,5 @@ export class AboutPage extends React.Component<AboutPageProps, {}> {
         )
     }
 }
+
+export default AboutPage;

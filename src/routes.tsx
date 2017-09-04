@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { Route } from 'react-router';
+import { Route, Redirect } from 'react-router-dom';
 import { AboutPage, HomePage } from './containers';
 
 export default (
-    <section>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/home" component={HomePage} />
+    <main>
+        <Route exact={true} path="/" component={HomePage} />
+        <Route path="/home" render={() => <Redirect to="/" />} />
         <Route path="/about" component={AboutPage} />
-    </section>
+    </main>
 )
