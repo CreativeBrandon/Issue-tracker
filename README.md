@@ -43,6 +43,7 @@ It correctly bundles React in production mode and optimizes the build for the be
 * Routing with React Router 4
 * Smart & dumb components
 * HOC passing data to components
+* Jest + Enzyme tests
 
 ToDo:
 * Redux

@@ -1,1 +1,2 @@
-export * from './app.reducer';
+export * from './posts/posts';
+export * from './ui/ui'

@@ -1,11 +1,24 @@
 import * as constants from '../constants';
+import { AppUI, Post } from '../reducers'
 
-export interface IncrementApp {
-    type: constants.INCREMENT_APP
+export interface AddPost {
+    type: constants.ADD_POST;
+    payload: Post;
 }
 
-export interface DecrementApp {
-    type: constants.DECREMENT_APP
+export interface UpdatePost {
+    type: constants.UPDATE_POST;
+    payload: Post;
 }
 
-export type AppAction = IncrementApp | DecrementApp
+export interface RemovePost {
+    type: constants.REMOVE_POST;
+    payload: { id: number };
+}
+
+export interface UpdateUI {
+    type: constants.UPDATE_UI;
+    payload: AppUI;
+}
+
+export type AppAction = AddPost | UpdatePost | RemovePost | UpdateUI

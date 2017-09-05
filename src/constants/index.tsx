@@ -1,5 +1,11 @@
-export const INCREMENT_APP = 'INCREMENT_APP';
-export type INCREMENT_APP = typeof INCREMENT_APP;
+export const ADD_POST = 'ADD_POST';
+export type ADD_POST = typeof ADD_POST;
 
-export const DECREMENT_APP = 'DECREMENT_APP';
-export type DECREMENT_APP = typeof DECREMENT_APP;
+export const UPDATE_POST = 'UPDATE_POST';
+export type UPDATE_POST = typeof UPDATE_POST;
+
+export const REMOVE_POST = 'REMOVE_POST';
+export type REMOVE_POST = typeof REMOVE_POST;
+
+export const UPDATE_UI = 'UPDATE_UI';
+export type UPDATE_UI = typeof UPDATE_UI;

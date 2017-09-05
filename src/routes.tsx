@@ -1,11 +1,14 @@
 import * as React from 'react';
-import { Route, Redirect } from 'react-router-dom';
-import { AboutPage, HomePage } from './containers';
+import { Redirect, Route, Switch } from 'react-router-dom';
+import { AboutPage, HomePage, NotFound } from './containers';
 
 export default (
     <main>
-        <Route exact={true} path="/" component={HomePage} />
-        <Route path="/home" render={() => <Redirect to="/" />} />
-        <Route path="/about" component={AboutPage} />
+        <Switch>
+            <Route path="/" exact={true} component={HomePage} />
+            <Route path="/about" component={AboutPage} />
+            <Route path="/home" render={() => <Redirect to="/" />} />
+            <Route component={NotFound} />
+        </Switch>
     </main>
 )

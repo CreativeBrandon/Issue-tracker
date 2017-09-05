@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Link, BrowserRouter } from 'react-router-dom'
 
-const logo = require('../../logo.svg')
+const logo = require('../../assets/logo.svg')
 
 interface HeaderProps {
     title: string
@@ -13,7 +13,7 @@ interface State {
 
 export class HeaderComponent extends React.Component<HeaderProps, State> {
     render() {
-        const { title } = { title: 'Home Page' } // this.props;
+        const { title } = this.props
 
         return (
             <BrowserRouter>

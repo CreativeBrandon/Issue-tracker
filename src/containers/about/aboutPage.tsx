@@ -1,15 +1,12 @@
-import * as React from 'react';
-import { HeaderComponent, SideBarComponent } from '../../components';
+import * as React from 'react'
+import { store, AppState } from '../../store'
+import { HeaderComponent, SideBarComponent } from '../../components'
 
 interface AboutPageProps {
     title: string
 }
 
-interface State {
-    data: {}
-}
-
-export class AboutPage extends React.Component<AboutPageProps, State> {
+export class AboutPage extends React.Component<AboutPageProps, AppState> {
 
     constructor(props: AboutPageProps) {
         super(props)
@@ -20,7 +17,9 @@ export class AboutPage extends React.Component<AboutPageProps, State> {
     }
 
     componentDidMount() {
+        const currentState = store.getState()
         console.info('did mount')
+        console.log(currentState)
     }
 
     componentDidUpdate() {
@@ -30,7 +29,7 @@ export class AboutPage extends React.Component<AboutPageProps, State> {
     render() {
         return (
             <section className="App">
-                <HeaderComponent title="About Page Container" />
+                <HeaderComponent title="About Page" />
                 <SideBarComponent />
             </section>
         )
