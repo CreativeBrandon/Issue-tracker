@@ -1,4 +1,4 @@
-import { AppState } from '../store'
+import { StoreState } from '../models'
 
 const appStorageKey: string = 'appName_state';
 
@@ -13,7 +13,7 @@ export const loadState = () => {
     }
 }
 
-export const saveState = (state: AppState) => {
+export const saveState = (state: StoreState) => {
     try {
         const serializedState = JSON.stringify(state)
         localStorage.setItem(appStorageKey, serializedState)

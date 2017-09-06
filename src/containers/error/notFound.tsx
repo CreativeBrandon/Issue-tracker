@@ -2,7 +2,11 @@ import * as React from 'react'
 import { store } from '../../store'
 import { SideBarComponent } from '../../components'
 
-export class NotFound extends React.Component {
+interface NotFoundProps {}
+
+interface NotFoundState {}
+
+export class NotFound extends React.Component<NotFoundProps, NotFoundState> {
 
     componentDidMount() {
         const currentState = store.getState()

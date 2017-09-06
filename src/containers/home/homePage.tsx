@@ -1,23 +1,26 @@
-import * as React from 'react';
-import { HeaderComponent, SideBarComponent } from '../../components';
+import * as React from 'react'
+import { HeaderComponent, PostListComponent, SideBarComponent } from '../../components'
+import * as actions from '../../actions'
+import { Post } from '../../models'
+import { store } from '../../store'
 import './homePage.css'
 
-interface HomePageProps {
-    title: string
+interface HomePageProps {}
+
+interface HomePageState {
+    posts: Post[]
 }
 
-interface State {
-    data: {}
-}
+export class HomePage extends React.Component<HomePageProps, HomePageState> {
 
-export class HomePage extends React.Component<HomePageProps, State> {
-
-    state: State = {
-        data: {}
+    state: HomePageState = {
+        posts: []
     }
 
     constructor(props: HomePageProps) {
         super(props)
+        //this.addPost()
+        this.fetchPosts()
     }
 
     componentWillMount() {
@@ -32,16 +35,29 @@ export class HomePage extends React.Component<HomePageProps, State> {
         console.info('did update after state change')
     }
 
-    render() {
-        const { title } = { title: 'Home Page' } // this.props;
+    fetchPosts() {
+        this.state.posts = store.getState().posts
+    }
 
+    addPost() {
+        store.dispatch(actions.addPost({
+            id: 4,
+            title: 'Redux fix',
+            description: 'updated redux actions',
+            status: 'pending',
+            isCompleted: false
+        }))
+    }
+
+    render() {
         return (
             <section className="App">
-                <HeaderComponent title={title} />
+                <HeaderComponent title="Home Page" />
                 <SideBarComponent />
                 <p className="App-intro">
                     To get started, edit <code>src/App.tsx</code> and save to reload.
                 </p>
+                <PostListComponent posts={this.state.posts} />
             </section>
         )
     }

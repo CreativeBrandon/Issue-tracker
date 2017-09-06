@@ -7,7 +7,7 @@ export default (
         <Switch>
             <Route path="/" exact={true} component={HomePage} />
             <Route path="/about" component={AboutPage} />
-            <Route path="/home" render={() => <Redirect to="/" />} />
+            <Redirect from="/home" to="/" />
             <Route component={NotFound} />
         </Switch>
     </main>

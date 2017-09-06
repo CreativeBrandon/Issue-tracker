@@ -4,7 +4,11 @@ import './sidebar.component.css';
 
 const logo = require('../../assets/logo.svg')
 
-export class SideBarComponent extends React.Component {
+interface SideBarProps {}
+
+interface sidebarState {}
+
+export class SideBarComponent extends React.Component<SideBarProps, sidebarState> {
     render() {
         return (
             <aside>

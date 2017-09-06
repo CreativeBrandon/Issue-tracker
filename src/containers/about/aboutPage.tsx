@@ -1,12 +1,14 @@
 import * as React from 'react'
-import { store, AppState } from '../../store'
+import { store } from '../../store'
 import { HeaderComponent, SideBarComponent } from '../../components'
 
 interface AboutPageProps {
     title: string
 }
 
-export class AboutPage extends React.Component<AboutPageProps, AppState> {
+interface AboutPageState {}
+
+export class AboutPage extends React.Component<AboutPageProps, AboutPageState> {
 
     constructor(props: AboutPageProps) {
         super(props)
