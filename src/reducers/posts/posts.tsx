@@ -1,23 +1,21 @@
-import { PostActions } from '../../actions'
+import { AddPost, ReceivePosts } from '../../actions'
 import { Post } from '../../models'
-import { ADD_POST, UPDATE_POST, REMOVE_POST } from '../../constants'
+import { ADD_POST, RECEIVE_POSTS } from '../../constants'
 
-const initialState: Post[] = []
-
-export const posts = (state: Post[] = initialState, action: PostActions): Post[] => {
-    const { type, payload } = action
-
-    switch (type) {
+export const addPost = (state: Post[] = [], action: AddPost) => {
+    switch (action.type) {
         case ADD_POST:
-            return [...state, payload]
-        case UPDATE_POST:
-            return state.map(post => {
-                if (post.id !== payload.id) { return post; }
-                return payload
-            })
-        case REMOVE_POST:
-            return state
+            return [...state, action.payload]
         default:
-            return state;
+            return state
+    }
+}
+
+export const receivedPosts = (state: Post[] = [], action: ReceivePosts) => {
+    switch (action.type) {
+        case RECEIVE_POSTS:
+            return action.payload
+        default:
+            return state
     }
 }

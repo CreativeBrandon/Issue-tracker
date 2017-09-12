@@ -1,7 +1,9 @@
 import createHistory from 'history/createBrowserHistory'
 import { routerMiddleware } from 'react-router-redux'
 import { createStore, applyMiddleware } from 'redux'
-import { loadState, saveState } from '../localstorage'
+import logger from 'redux-logger'
+import thunk from 'redux-thunk'
+import { loadState } from './localstorage'
 import rootReducer from '../reducers/rootReducer'
 
 export const history = createHistory()
@@ -11,13 +13,14 @@ const middleware = routerMiddleware(history)
 
 // Now you can dispatch navigation actions from anywhere! store.dispatch(push('/foo'))
 const presistedState = loadState()
+// const recoverState = (): RootState => ({} as RootState);
 
 export const store = createStore(
     rootReducer,
     presistedState,
-    applyMiddleware(middleware)
+    applyMiddleware(middleware, thunk, logger)
 )
 
 store.subscribe(() => {
-    saveState(store.getState())
+   // saveState(store.getState())
 })

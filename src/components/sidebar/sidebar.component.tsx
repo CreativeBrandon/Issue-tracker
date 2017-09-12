@@ -1,22 +1,24 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import './sidebar.component.css';
 
 const logo = require('../../assets/logo.svg')
 
 interface SideBarProps {}
 
-interface sidebarState {}
+interface SidebarState {}
 
-export class SideBarComponent extends React.Component<SideBarProps, sidebarState> {
+export class SideBarComponent extends React.Component<SideBarProps, SidebarState> {
     render() {
         return (
             <aside>
                 <nav>
-                    <Link to="/"><img src={logo} className="App-logo" alt="logo" /></Link>
-                    <Link to="/home">Home</Link>
-                    <Link to="/about">About</Link>
-                    <Link to="/dashboard">Dashboard</Link>
+                    <NavLink activeClassName="" exact={true} to="/">
+                        <img src={logo} className="App-logo" alt="logo" />
+                    </NavLink>
+                    <NavLink activeClassName="" exact={true} to="/home">Home</NavLink>
+                    <NavLink activeClassName="" exact={true} to="/about">About</NavLink>
+                    <NavLink activeClassName="" exact={true} to="/dashboard">Dashboard</NavLink>
                 </nav>
             </aside>
         )

@@ -1,17 +1,11 @@
 import * as React from 'react'
-import { store } from '../../store'
 import { SideBarComponent } from '../../components'
 
 interface NotFoundProps {}
 
 interface NotFoundState {}
 
-export class NotFound extends React.Component<NotFoundProps, NotFoundState> {
-
-    componentDidMount() {
-        const currentState = store.getState()
-        console.log('current state', currentState)
-    }
+export default class NotFoundPage extends React.Component<NotFoundProps, NotFoundState> {
 
     render() {
         return (
