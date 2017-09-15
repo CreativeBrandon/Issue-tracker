@@ -1,8 +1,4 @@
-import { AppUI, Post} from '.';
-
-export interface Entities {
-    postsById: Post[]
-}
+import { AppUI, Entities } from '.';
 
 // Application State
 export interface StoreState {

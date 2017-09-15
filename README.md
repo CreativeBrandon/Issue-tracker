@@ -1,9 +1,26 @@
 # Issue Tracker App - React Redux Typescript
 
+Simple app designed to document my learnings by getting hands on with React Redux with Typescript.  
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
-## Build App 
+## Concepts Covered
+* Routing with React Router 4
+* Smart & dumb components
+* HOC passing data to components
+* Redux
+* Redux forms
+* Normalized State data
+* Jest + Enzyme tests
 
+## ToDo:
+* Add validation to Redux form
+* Implement CSS Modules
+* Style pages & components
+* Route authenticaion for DashboardPage
+* ...
+
+## Build App 
 For the project to build, **these files must exist with exact filenames**:
 
 * `public/index.html` is the page template;
@@ -18,33 +35,16 @@ Only files inside `public` can be used from `public/index.html`.<br>
 Read instructions below for using assets from JavaScript and HTML.
 
 ## Available Scripts
-
 In the project directory, you can run:
 
 ### `npm start`
-
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### `npm test`
-
 Launches the test runner in the interactive watch mode.<br>
 See the section about [running tests](#running-tests) for more information.
 
 ### `npm run build`
-
 Builds the app for production to the `build` folder.<br>
 It correctly bundles React in production mode and optimizes the build for the best performance.
-
-### `npm run eject`
-
-## Concepts Covered
-
-* Routing with React Router 4
-* Smart & dumb components
-* HOC passing data to components
-* Jest + Enzyme tests
-
-ToDo:
-* Redux
-* CSS Modules

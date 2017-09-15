@@ -1,12 +1,15 @@
-import { AddPost, ReceivePosts } from '../actions'
+import { AddPost, ReceivedPosts } from '../actions'
 import { Entities } from '../models'
 import { ADD_POST, RECEIVE_POSTS } from '../constants'
-import { addPost, receivedPosts } from './posts/posts'
+import { addPost } from './posts/posts'
 
-type Action = AddPost | ReceivePosts
+type Action = AddPost | ReceivedPosts
 
 const initialState: Entities = {
-    postsById: []
+    posts: {
+        allIds: [],
+        byIds: {}
+    }
 }
 
 export const entities = (state: Entities = initialState, action: Action): Entities => {
@@ -14,14 +17,10 @@ export const entities = (state: Entities = initialState, action: Action): Entiti
         case ADD_POST:
             return {
                 ...state,
-                postsById: addPost(state.postsById, action)
-
+                posts: addPost(state.posts, action)
             }
         case RECEIVE_POSTS:
-            return {
-                ...state,
-                postsById: receivedPosts(state.postsById, action)
-            }
+            return state
         default:
             return state
     }

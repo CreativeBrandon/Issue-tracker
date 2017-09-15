@@ -1,12 +1,12 @@
 import * as React from 'react'
-// import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { Post } from '../../models'
 
 interface PostComponentProps {
     post: Post
 }
 
-interface PostComponentState {}
+interface PostComponentState { }
 
 export class PostComponent extends React.Component<PostComponentProps, PostComponentState> {
 
@@ -19,6 +19,11 @@ export class PostComponent extends React.Component<PostComponentProps, PostCompo
                 <h4><span>Id:</span> {post.id}</h4>
                 <div><span>Status:</span> {post.status} | <span>isCompleted:</span> {post.isCompleted} </div>
                 <p><span>Description: </span> {post.description}</p>
+                <div className="post-actions">
+                    <NavLink activeClassName="post-actions-link" exact={true} to={`/post/${post.id}/edit`} >
+                        Edit
+                    </NavLink>
+                </div>
             </div>
         )
     }

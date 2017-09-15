@@ -6,6 +6,7 @@ interface JsonData {
 
 const data: JsonData = require('./data.json')
 
+// In the Real World hit Endpoint
 export const fetchInitialPosts = () => {
     return data.posts
 }

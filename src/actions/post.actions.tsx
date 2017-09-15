@@ -1,6 +1,5 @@
 import * as constants from '../constants';
 import { Dispatch } from 'redux'
-import {  } from 'redux-thunk'
 import * as Api from '../api'
 import { Post, StoreState } from '../models'
 
@@ -8,12 +7,17 @@ import { Post, StoreState } from '../models'
 export interface FSAction {
     type: string
     payload?: any | Error
-    error: Error
+    error?: Error
     meta?: any
 }
 
-export interface AddPost {
+export interface AddPost extends FSAction {
     type: constants.ADD_POST
+    payload: Post
+}
+
+export interface UpdatePost extends FSAction {
+    type: constants.UPDATE_POST
     payload: Post
 }
 
@@ -21,7 +25,7 @@ export interface RequestPosts extends FSAction {
     type: constants.REQUEST_POSTS
 }
 
-export interface ReceivePosts extends FSAction {
+export interface ReceivedPosts extends FSAction {
     type: constants.RECEIVE_POSTS
     payload: Post[]
 }
@@ -33,17 +37,23 @@ export function addPost(post: Post): AddPost {
     }
 }
 
+export function updatePost(post: Post): UpdatePost {
+    return {
+        type: constants.UPDATE_POST,
+        payload: post
+    }
+}
+
 export function requestPosts() {
     return {
         type: constants.REQUEST_POSTS
     }
 }
 
-export function receivePosts(posts: Post[]) {
+export function receivedPosts(posts: Post[]) {
     return {
         type: constants.RECEIVE_POSTS,
-        payload: posts,
-        // receivedAt: Date.now()
+        payload: posts
     }
 }
 
@@ -52,10 +62,13 @@ export function fetchPosts() {
     return (dispatch: Dispatch<StoreState>) => {
         dispatch(requestPosts())
 
-        // API call
-        const data: Post[]  = Api.fetchInitialPosts()
-        return dispatch(receivePosts(data))
+        const data: Post[] = Api.fetchInitialPosts()
+        // dispatch(receivedPosts(data))
+
+        return data.forEach((post) => {
+            dispatch(addPost(post))
+        })
     }
 }
 
-export type PostActions = AddPost | RequestPosts | ReceivePosts
+export type PostActions = AddPost | RequestPosts | ReceivedPosts

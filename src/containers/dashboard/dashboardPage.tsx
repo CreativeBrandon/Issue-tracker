@@ -3,9 +3,7 @@ import {
     HeaderComponent, SideBarComponent
 } from '../../components';
 
-interface DashboardPageProps {
-    title: string
-}
+interface DashboardPageProps {}
 
 interface DashboardPageState { }
 
@@ -13,10 +11,6 @@ class DashboardPage extends React.Component<DashboardPageProps, DashboardPageSta
 
     constructor(props: DashboardPageProps) {
         super(props)
-    }
-
-    submit(values: {}) {
-        // console.log('form submitted', values)
     }
 
     render() {

@@ -1,20 +1,19 @@
 import * as React from 'react'
-import { Post } from '../../models'
+import { Post, EntitiesPost } from '../../models'
 import { PostComponent } from '../../components'
 
 interface PostListProps {
-    posts: Post[]
+    posts: EntitiesPost
 }
 
-interface PostListState {
-    posts: Post[]
-}
+interface PostListState { }
 
 export class PostListComponent extends React.Component<PostListProps, PostListState> {
     render() {
         const { posts } = this.props
 
-        const postList = posts.map(post => {
+        const postList = posts.allIds.map((id: number) => {
+            const post: Post = posts.byIds[id]
             return <PostComponent key={post.id} post={post} />
         })
 
@@ -22,7 +21,7 @@ export class PostListComponent extends React.Component<PostListProps, PostListSt
             <section className="posts-list">
                 <h3>Posts</h3>
                 <ul>{postList}</ul>
-                {posts.length > 0 && 
+                {posts.allIds.length > 0 &&
                     <span />
                 }
             </section>

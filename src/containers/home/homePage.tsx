@@ -2,62 +2,45 @@ import * as React from 'react'
 import { bindActionCreators, Dispatch } from 'redux'
 import { connect } from 'react-redux'
 import * as actions from '../../actions'
-import { Post, StoreState } from '../../models'
+import { StoreState, Entities } from '../../models'
 import { store } from '../../store'
-import * as Api from '../../api'
 import { HeaderComponent, PostListComponent, SideBarComponent } from '../../components'
 import './homePage.css'
 
 interface HomePageProps {
-    onAddPost?: () => void
-    onUpdatePost?: () => void
-    onRemovePost?: () => void
-}
-interface JsonPlaceholderTodo {
-    userId: number
-    id: number
-    title: string
-    completed: boolean
+    entities: Entities
+    actions: any
 }
 
-interface HomePageState {
-    posts: Post[]
-    todos: JsonPlaceholderTodo[]
-    isLoading: boolean
-}
+interface HomePageState { }
 
-class HomePage extends React.Component<any, HomePageState> {
+class HomePage extends React.Component<HomePageProps, HomePageState> {
 
-    interval: any;
+    interval: number;
+    _unsubscribe: Function;
 
     constructor(props: HomePageProps) {
         super(props)
     }
 
     componentDidMount() {
-        if (this.props.entities.postsById.length === 0) this.props.actions.fetchPosts()
-        console.info('Homepage did mount, state:', this.props)
-        this.interval = setInterval(() => {
-            this.addPost()
+        this._unsubscribe = store.subscribe(() => { })
+        if (this.props.entities.posts.allIds.length === 0) { this.props.actions.fetchPosts() }
+        this.interval = window.setInterval(() => {
+            this._addPost()
             clearInterval(this.interval)
-        }, 3000);
-
+        }, 3000)
     }
 
-    componentWillUnMount() {
-        console.info('Homepage will unmount:')
+    componentWillUnmount() {
+        this._unsubscribe()
     }
 
-    fetchPosts() {
-        const promise = Api.fetchPosts('https://jsonplaceholder.typicode.com/todos')
-        promise.then((posts: JsonPlaceholderTodo) => this.state.todos)
-    }
-
-    addPost() {
+    _addPost() {
         store.dispatch(actions.addPost({
             id: Math.floor(Math.random() * (1000 - 5 + 1) + 5),
-            title: 'Redux fix',
-            description: 'updated redux actions',
+            title: 'Added one more post',
+            description: 'Simulate adding one more post',
             status: 'pending',
             isCompleted: false
         }))
@@ -71,23 +54,21 @@ class HomePage extends React.Component<any, HomePageState> {
                 <p className="App-intro">
                     To get started, edit <code>src/App.tsx</code> and save to reload.
                 </p>
-                <PostListComponent posts={this.props.entities.postsById} />
+                <PostListComponent posts={this.props.entities.posts} />
             </section>
         )
     }
 }
 
 const mapStateToProps = (state: StoreState) => {
-    console.info('prop state', state)
     return {
         entities: {
-            postsById: state.entities.postsById
+            posts: state.entities.posts
         }
     }
 }
 
 const mapDispatchToProps = (dispatch: Dispatch<StoreState>) => {
-    console.info('mapDispatchToProps dispatch')
     return {
         actions: bindActionCreators({ fetchPosts: actions.fetchPosts }, dispatch)
     }
