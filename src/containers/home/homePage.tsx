@@ -5,7 +5,8 @@ import * as actions from '../../actions'
 import { StoreState, Entities } from '../../models'
 import { store } from '../../store'
 import { HeaderComponent, PostListComponent, SideBarComponent } from '../../components'
-import './homePage.css'
+
+const styles = require('./homePage.css')
 
 interface HomePageProps {
     entities: Entities
@@ -48,10 +49,10 @@ class HomePage extends React.Component<HomePageProps, HomePageState> {
 
     render() {
         return (
-            <section className="App">
+            <section className={styles.App}>
                 <HeaderComponent title="Home Page" />
                 <SideBarComponent />
-                <p className="App-intro">
+                <p className={styles.AppIntro}>
                     To get started, edit <code>src/App.tsx</code> and save to reload.
                 </p>
                 <PostListComponent posts={this.props.entities.posts} />

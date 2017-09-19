@@ -1,11 +1,13 @@
-aside .App-logo {
-    height: 20px;
-}
+.container {}
 
-aside nav {
+.sideNav {
     margin: 10px 0;
 }
 
-aside nav a {
+.sideNav a {
     padding: 0 5px;
+}
+
+.logo {
+    height: 20px;
 }

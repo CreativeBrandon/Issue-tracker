@@ -44,6 +44,7 @@ export const addPost = (state: EntitiesPost, action: AddPost) => {
                 allIds: allIds(state.allIds, action),
                 byIds: byIds(state.byIds, action)
             }
+        // return [...state, action.payload]
         default:
             return state
     }

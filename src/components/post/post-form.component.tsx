@@ -4,6 +4,34 @@ import { PostBase } from '../../models'
 
 export interface PostFormState extends PostBase { }
 
+interface ReduxFormMeta {
+    touched: boolean
+    error: any
+    warning: any
+}
+
+export const renderField = (input: {}, label: string, type: string, meta: ReduxFormMeta) => {
+    <div>
+        <label>
+            {label}
+        </label>
+        <div>
+            <input {...input} placeholder={label} type={type} />
+            {meta.touched &&
+                ((meta.error &&
+                    <span>
+                        {meta.error}
+                    </span>
+                ) || (meta.warning &&
+                    <span>
+                        {meta.warning}
+                    </span>)
+                )
+            }
+        </div>
+    </div>
+}
+
 class PostFormComponent extends React.Component<any, PostFormState> {
 
     render() {

@@ -11,6 +11,8 @@ import {
     PostFormState, SideBarComponent
 } from '../../components';
 
+import './editPostPage.css'
+
 interface EditPostPageProps {
     entities: Entities
     actions: any
@@ -37,7 +39,7 @@ class EditPostPage extends React.Component<EditPostPageProps, EditPostPageState>
 
     render() {
         return (
-            <section className="App">
+            <section className="App editPostPage">
                 <HeaderComponent title="Edit Post" />
                 <SideBarComponent />
                 <PostFormComponent onSubmit={this.submit} />

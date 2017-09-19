@@ -2,7 +2,7 @@
 
 Simple app designed to document my learnings by getting hands on with React Redux with Typescript.  
 
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+This project was bootstrapped with a fork of [Create React App](https://github.com/facebookincubator/create-react-app) called [Create React App Typescript](https://github.com/wmonk/create-react-app-typescript    ).
 
 ## Concepts Covered
 * Routing with React Router 4

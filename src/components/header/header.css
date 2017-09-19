@@ -1,0 +1,11 @@
+.AppHeader{
+    background-color: #222;
+    height: auto;
+    padding: 20px;
+    color: white;
+    overflow: hidden;
+}  
+
+.AppLogo {
+    height: 50px;
+}
