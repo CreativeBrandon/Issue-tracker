@@ -2,6 +2,8 @@ import * as React from 'react'
 import { Post, EntitiesPost } from '../../models'
 import { PostComponent } from '../../components'
 
+const styles = require('./post-list.component.css')
+
 interface PostListProps {
     posts: EntitiesPost
 }
@@ -14,13 +16,13 @@ export class PostListComponent extends React.Component<PostListProps, PostListSt
 
         const postList = posts.allIds.map((id: number) => {
             const post: Post = posts.byIds[id]
-            return <PostComponent key={post.id} post={post} />
+            return <li className={styles.listItem}><PostComponent key={post.id} post={post} /></li>
         })
 
         return (
-            <section className="posts-list">
-                <h3>Posts</h3>
-                <ul>{postList}</ul>
+            <section className={styles.postContainer}>
+                <h3 className={styles.title}>Posts</h3>
+                <ul className={styles.postList}>{postList}</ul>
                 {posts.allIds.length > 0 &&
                     <span />
                 }

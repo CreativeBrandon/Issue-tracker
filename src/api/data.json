@@ -4,27 +4,43 @@
             "title": "Condo Doors",
             "description": "Resident condo doors slam shut without tenant interaction.",
             "status": "pending",
-            "isComplete": false
+            "isComplete": false,
+            "user": {
+                "username": "Admin",
+                "avatar": "http://i.pravatar.cc/200"
+            }
         }, {
             "id": 2,
             "title": "Elevators",
             "description": "Only 1 of 3 resident elevators are complete. 2 of 3 are in use. 3rd elevator has never been in use.",
             "status": "pending",
-            "isComplete": false
+            "isComplete": false,
+            "user": {
+                "username": "Security",
+                "avatar": "http://i.pravatar.cc/200"
+            }
         },
         {
             "id": 3,
             "title": "Resident Gym",
             "description": "Gym still not completed. Whats the ETA",
             "status": "pending",
-            "isComplete": false
+            "isComplete": false,
+            "user": {
+                "username": "Trainer",
+                "avatar": "http://i.pravatar.cc/200"
+            }
         },
         {
             "id": 4,
             "title": "HVAC Issues",
             "description": "HVAC makes loud clicking noises when set to hight. This happens in resident suites.",
             "status": "pending",
-            "isComplete": false
+            "isComplete": false,
+            "user": {
+                "username": "Contractor",
+                "avatar": "http://i.pravatar.cc/200"
+            }
         }
     ]
 }

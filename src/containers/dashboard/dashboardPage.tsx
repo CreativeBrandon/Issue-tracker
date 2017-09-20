@@ -1,7 +1,9 @@
 import * as React from 'react';
 import {
     HeaderComponent, SideBarComponent
-} from '../../components';
+} from '../../components'
+
+const theme = require('../container.theme.css')
 
 interface DashboardPageProps {}
 
@@ -15,7 +17,7 @@ class DashboardPage extends React.Component<DashboardPageProps, DashboardPageSta
 
     render() {
         return (
-            <section className="App">
+            <section className={theme.app}>
                 <HeaderComponent title="Dashboard Page" />
                 <SideBarComponent />
             </section>

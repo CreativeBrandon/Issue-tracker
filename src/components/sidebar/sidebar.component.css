@@ -1,4 +1,6 @@
-.container {}
+.container {
+    text-align: center;
+}
 
 .sideNav {
     margin: 10px 0;

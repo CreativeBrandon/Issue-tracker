@@ -6,7 +6,7 @@ import { StoreState, Entities } from '../../models'
 import { store } from '../../store'
 import { HeaderComponent, PostListComponent, SideBarComponent } from '../../components'
 
-const styles = require('./homePage.css')
+const theme = require('../container.theme.css')
 
 interface HomePageProps {
     entities: Entities
@@ -43,16 +43,20 @@ class HomePage extends React.Component<HomePageProps, HomePageState> {
             title: 'Added one more post',
             description: 'Simulate adding one more post',
             status: 'pending',
-            isCompleted: false
+            isCompleted: false,
+            user: {
+                username: "Security",
+                avatar: "http://i.pravatar.cc/200"
+            }
         }))
     }
 
     render() {
         return (
-            <section className={styles.App}>
+            <section className={theme.app}>
                 <HeaderComponent title="Home Page" />
                 <SideBarComponent />
-                <p className={styles.AppIntro}>
+                <p className={theme.appIntro}>
                     To get started, edit <code>src/App.tsx</code> and save to reload.
                 </p>
                 <PostListComponent posts={this.props.entities.posts} />

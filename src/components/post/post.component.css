@@ -1,0 +1,40 @@
+.actionLink {
+    background-color: #00d8ff;
+    color: #000;
+    display: block;
+    font-size: 0.75rem;
+    padding: 3px 0;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 50px;
+}
+.avatar {
+    display: inline-flex;
+    height: 50px;
+    margin-right: 5px;
+    width: auto;
+}
+
+.header {
+    display: flex;
+}
+
+.headerInfo {}
+
+.post {
+    border: solid thin #CCC;
+    padding: 10px;
+}
+
+.title {
+    font-size: 1rem;
+    text-transform: capitalize;
+    margin: 0 0 3px;
+}
+
+.username {
+    font-size: 0.8rem;
+    font-weight: normal;
+    margin: 0;
+}

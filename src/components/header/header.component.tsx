@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-const styles = require('./header.css')
+const styles = require('./header.component.css')
 const logo = require('../../assets/logo.svg')
 
 interface HeaderProps {

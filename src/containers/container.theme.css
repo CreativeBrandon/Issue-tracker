@@ -1,0 +1,11 @@
+/**
+* container styles only. 
+* Positioning of components within the container
+**/
+
+.app {}
+
+.appIntro {
+  font-size: large;
+  text-align: center;
+}

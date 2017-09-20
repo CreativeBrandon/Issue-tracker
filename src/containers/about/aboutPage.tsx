@@ -1,5 +1,7 @@
 import * as React from 'react';
-import { HeaderComponent, SideBarComponent } from '../../components';
+import { HeaderComponent, SideBarComponent } from '../../components'
+
+const theme = require('../container.theme.css')
 
 interface AboutPageProps {
     title: string
@@ -15,7 +17,7 @@ class AboutPage extends React.Component<AboutPageProps, AboutPageState> {
 
     render() {
         return (
-            <section className="App">
+            <section className={theme.app}>
                 <HeaderComponent title="About Page" />
                 <SideBarComponent />
             </section>

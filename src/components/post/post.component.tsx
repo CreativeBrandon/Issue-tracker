@@ -2,6 +2,8 @@ import * as React from 'react'
 import { NavLink } from 'react-router-dom'
 import { Post } from '../../models'
 
+const styles = require('./post.component.css')
+
 interface PostComponentProps {
     post: Post
 }
@@ -14,17 +16,29 @@ export class PostComponent extends React.Component<PostComponentProps, PostCompo
         const post = this.props.post
 
         return (
-            <div className="post">
-                <h3><span>Title:</span> {post.title}</h3>
-                <h4><span>Id:</span> {post.id}</h4>
-                <div><span>Status:</span> {post.status} | <span>isCompleted:</span> {post.isCompleted} </div>
-                <p><span>Description: </span> {post.description}</p>
-                <div className="post-actions">
-                    <NavLink activeClassName="post-actions-link" exact={true} to={`/post/${post.id}/edit`} >
-                        Edit
-                    </NavLink>
+            <article className={styles.post}>
+                <header className={styles.header}>
+                    <img className={styles.avatar} src={post.user.avatar} alt={post.user.username} />
+                    <div className={styles.headerInfo}>
+                        <h3 className={styles.title}>{post.title}</h3>
+                        <h4 className={styles.username}>{post.user.username}</h4>
+                    </div>
+                </header>
+
+                <div className={styles.content}>
+                    <p>{post.description}</p>
+                    <span>ID: {post.id}</span>
                 </div>
-            </div>
+
+                <footer className={styles.postFooter}>
+                    <div><span>Status:</span> {post.status} | <span>isCompleted:</span> {post.isCompleted} </div>
+                    <div className={styles.actions}>
+                        <NavLink className={styles.actionLink} activeClassName={styles.active} exact={true} to={`/post/${post.id}/edit`} >
+                            Edit
+                        </NavLink>
+                    </div>
+                </footer>
+            </article>
         )
     }
 }

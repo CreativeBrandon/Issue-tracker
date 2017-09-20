@@ -1,0 +1,24 @@
+.postContainer {
+    margin: 0 auto;
+    width: 90%;
+}
+
+.postList {
+    align-items: flex-start;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    padding: 0;
+    position: relative;
+}
+
+.title {
+    text-align: center;
+}
+
+.listItem {
+    box-shadow: 0 2px 3px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+    list-style: none;
+    flex-basis: 24%;
+    margin-bottom: 15px;
+}
