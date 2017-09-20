@@ -2,7 +2,7 @@
 
 Simple app designed to document my learnings by getting hands on with React Redux with Typescript.  
 
-This project was bootstrapped with a fork of [Create React App](https://github.com/facebookincubator/create-react-app) called [Create React App Typescript](https://github.com/wmonk/create-react-app-typescript    ).
+This project was bootstrapped with a fork of [Create React App](https://github.com/facebookincubator/create-react-app) called [Create React App Typescript](https://github.com/wmonk/create-react-app-typescript).
 
 ## Concepts Covered
 * Routing with React Router 4
@@ -11,11 +11,11 @@ This project was bootstrapped with a fork of [Create React App](https://github.c
 * Redux
 * Redux forms
 * Normalized State data
+* CSS Modules via [custom react scripts](https://www.npmjs.com/package/react-scripts-ts-css-modules)
 * Jest + Enzyme tests
 
 ## ToDo:
 * Add validation to Redux form
-* Implement CSS Modules
 * Style pages & components
 * Route authenticaion for DashboardPage
 * ...
