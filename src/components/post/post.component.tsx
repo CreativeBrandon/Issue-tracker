@@ -33,7 +33,12 @@ export class PostComponent extends React.Component<PostComponentProps, PostCompo
                 <footer className={styles.postFooter}>
                     <div><span>Status:</span> {post.status} | <span>isCompleted:</span> {post.isCompleted} </div>
                     <div className={styles.actions}>
-                        <NavLink className={styles.actionLink} activeClassName={styles.active} exact={true} to={`/post/${post.id}/edit`} >
+                        <NavLink 
+                            className={styles.actionLink}
+                            activeClassName={styles.active}
+                            exact={true}
+                            to={`/post/${post.id}/edit`}
+                        >
                             Edit
                         </NavLink>
                     </div>

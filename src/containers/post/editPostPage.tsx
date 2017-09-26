@@ -3,12 +3,12 @@ import { bindActionCreators, Dispatch } from 'redux'
 import { connect } from 'react-redux'
 import { } from 'react-router-dom'
 import * as actions from '../../actions'
-import { Entities, StoreState } from '../../models'
+import { Entities, Post, StoreState } from '../../models'
 import { store } from '../../store'
 import {
     HeaderComponent,
     postFormComponent as PostFormComponent,
-    PostFormState, SideBarComponent
+    SideBarComponent
 } from '../../components';
 
 import './editPostPage.css'
@@ -23,18 +23,17 @@ interface EditPostPageState { }
 
 class EditPostPage extends React.Component<EditPostPageProps, EditPostPageState> {
 
-    editingPost: any;
+    editingPost: Post;
 
     componentDidMount() {
         if (this.props.entities.posts.allIds.length === 0) { this.props.actions.fetchPosts() }
-
-        const { postId } = this.props.match.params
-        const entities: Entities = store.getState().entities
-        this.editingPost = entities.posts.byIds[postId]
+        this.editingPost = this._getEditingPost()
     }
 
-    submit(values: PostFormState) {
-        console.info('form submitted', values)
+    _getEditingPost(): Post {
+        const { postId } = this.props.match.params
+        const entities: Entities = store.getState().entities
+        return entities.posts.byIds[postId]
     }
 
     render() {
@@ -42,7 +41,7 @@ class EditPostPage extends React.Component<EditPostPageProps, EditPostPageState>
             <section className="App editPostPage">
                 <HeaderComponent title="Edit Post" />
                 <SideBarComponent />
-                <PostFormComponent onSubmit={this.submit} />
+                <PostFormComponent initialValues={this.editingPost} />
             </section>
         )
     }

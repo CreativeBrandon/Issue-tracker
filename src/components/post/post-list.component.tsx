@@ -16,7 +16,7 @@ export class PostListComponent extends React.Component<PostListProps, PostListSt
 
         const postList = posts.allIds.map((id: number) => {
             const post: Post = posts.byIds[id]
-            return <li className={styles.listItem}><PostComponent key={post.id} post={post} /></li>
+            return <li key={post.id} className={styles.listItem}><PostComponent post={post} /></li>
         })
 
         return (

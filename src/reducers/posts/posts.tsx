@@ -1,8 +1,8 @@
-import { AddPost, ReceivedPosts } from '../../actions';
+import { AddPost, ReceivedPosts, UpdatePost } from '../../actions';
 import { Post, EntitiesPost } from '../../models';
-import { ADD_POST, RECEIVE_POSTS } from '../../constants';
+import { ADD_POST, RECEIVE_POSTS, UPDATE_POST } from '../../constants';
 
-const post = (state: Post, action: AddPost) => {
+const post = (state: Post, action: AddPost): Post => {
     const { type, payload } = action
     switch (type) {
         case ADD_POST:
@@ -12,7 +12,7 @@ const post = (state: Post, action: AddPost) => {
     }
 }
 
-const byIds = (state: object = {}, action: AddPost) => {
+const byIds = (state: object = {}, action: AddPost): object => {
     const { type, payload } = action
 
     switch (type) {
@@ -26,7 +26,7 @@ const byIds = (state: object = {}, action: AddPost) => {
     }
 }
 
-const allIds = (state: number[] = [], action: AddPost) => {
+const allIds = (state: number[] = [], action: AddPost): number[] => {
     const { type, payload } = action
     switch (type) {
         case ADD_POST:
@@ -36,7 +36,7 @@ const allIds = (state: number[] = [], action: AddPost) => {
     }
 }
 
-export const addPost = (state: EntitiesPost, action: AddPost) => {
+export const addPost = (state: EntitiesPost, action: AddPost): EntitiesPost => {
     switch (action.type) {
         case ADD_POST:
             return {
@@ -44,13 +44,12 @@ export const addPost = (state: EntitiesPost, action: AddPost) => {
                 allIds: allIds(state.allIds, action),
                 byIds: byIds(state.byIds, action)
             }
-        // return [...state, action.payload]
         default:
             return state
     }
 }
 
-export const addPostbyId = (state: Post[] = [], action: AddPost) => {
+export const addPostbyId = (state: Post[] = [], action: AddPost): Post[] => {
     switch (action.type) {
         case ADD_POST:
             return [...state, action.payload]
@@ -59,10 +58,30 @@ export const addPostbyId = (state: Post[] = [], action: AddPost) => {
     }
 }
 
-export const receivedPosts = (state: Post[] = [], action: ReceivedPosts) => {
+export const receivedPosts = (state: Post[] = [], action: ReceivedPosts): Post[] => {
     switch (action.type) {
         case RECEIVE_POSTS:
             return action.payload
+        default:
+            return state
+    }
+}
+
+export const updatePost = (state: {}, action: UpdatePost): {} => {
+    const { type, payload} = action
+
+    switch (type) {
+        case UPDATE_POST:
+            const currentPost = state[payload.id]
+            return {
+                ...state,
+                [payload.id]: {
+                    ...currentPost,
+                    title: payload.title,
+                    description: payload.description,
+                    status: payload.status
+                }
+            }
         default:
             return state
     }

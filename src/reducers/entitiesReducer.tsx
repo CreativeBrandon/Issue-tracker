@@ -1,9 +1,9 @@
-import { AddPost, ReceivedPosts } from '../actions'
+import { AddPost, ReceivedPosts, UpdatePost } from '../actions'
 import { Entities } from '../models'
-import { ADD_POST, RECEIVE_POSTS } from '../constants'
-import { addPost } from './posts/posts'
+import { ADD_POST, RECEIVE_POSTS, UPDATE_POST } from '../constants'
+import { addPost, updatePost } from './posts/posts'
 
-type Action = AddPost | ReceivedPosts
+type Action = AddPost |  ReceivedPosts | UpdatePost
 
 const initialState: Entities = {
     posts: {
@@ -18,6 +18,14 @@ export const entities = (state: Entities = initialState, action: Action): Entiti
             return {
                 ...state,
                 posts: addPost(state.posts, action)
+            }
+        case UPDATE_POST:
+            return {
+                ...state,
+                posts: {
+                    allIds: state.posts.allIds,
+                    byIds: updatePost(state.posts.byIds, action)
+                }
             }
         case RECEIVE_POSTS:
             return state

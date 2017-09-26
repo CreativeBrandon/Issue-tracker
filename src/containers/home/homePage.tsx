@@ -45,8 +45,8 @@ class HomePage extends React.Component<HomePageProps, HomePageState> {
             status: 'pending',
             isCompleted: false,
             user: {
-                username: "Security",
-                avatar: "http://i.pravatar.cc/200"
+                username: 'Security',
+                avatar: 'http://i.pravatar.cc/200'
             }
         }))
     }
