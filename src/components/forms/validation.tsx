@@ -1,16 +1,16 @@
-export const required = (value: any) => (value ? undefined : 'Required')
+export const required = (value: {}) => (value ? undefined : 'Required')
 
-export const maxLength = (max: number) => (value: any[]) =>
+export const maxLength = (max: number) => (value: object[]) =>
     value && value.length > max ? `Must be ${max} characters or less` : undefined
 
 export const maxLength100 = maxLength(100)
 
-export const minLength = (min: number) => (value: any[]) =>
+export const minLength = (min: number) => (value: object[]) =>
     value && value.length < min ? `Must be ${min} characters or more` : undefined
 
 export const minLength2 = minLength(2)
 
-export const numeric = (value: any) =>
+export const numeric = (value: {}) =>
     value && isNaN(Number(value)) ? 'Must be a number' : undefined
 
 export const minValue = (min: number) => (value: number) =>

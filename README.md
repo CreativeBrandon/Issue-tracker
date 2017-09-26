@@ -15,7 +15,7 @@ This project was bootstrapped with a fork of [Create React App](https://github.c
 * Jest + Enzyme tests
 
 ## ToDo:
-* Add validation to Redux form
+* Style Redux form
 * Style pages & components
 * Route authenticaion for DashboardPage
 * ...

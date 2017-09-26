@@ -6,9 +6,9 @@ import { Post, StoreState } from '../models'
 // Flux Safe Action
 export interface FSAction {
     type: string
-    payload?: any | Error
+    payload?: {} | Error
     error?: Error
-    meta?: any
+    meta?: {}
 }
 
 export interface AddPost extends FSAction {
