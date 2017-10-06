@@ -2,14 +2,14 @@ import * as React from 'react'
 import { bindActionCreators, Dispatch } from 'redux'
 import { connect } from 'react-redux'
 import * as actions from '../../actions'
-import { StoreState, Entities } from '../../models'
+import { StoreState, EntitiesState } from '../../models'
 import { store } from '../../store'
 import { HeaderComponent, PostListComponent, SideBarComponent } from '../../components'
 
 const theme = require('../container.theme.css')
 
 interface HomePageProps {
-    entities: Entities
+    entities: EntitiesState
     actions: any
 }
 

@@ -64,4 +64,4 @@ export function fetchPosts() {
     }
 }
 
-export type PostActions = AddPost | UpdatePost | RequestPosts | ReceivedPosts
+export type PostActions = AddPost | UpdatePost // | RequestPosts | ReceivedPosts

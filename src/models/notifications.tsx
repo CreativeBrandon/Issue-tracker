@@ -15,6 +15,6 @@ export interface UiNotificationsState {
 }
 
 export interface NotificationsState {
-    ids: number[]
+    allIds: number[]
     byIds: NotificationsById
 }
