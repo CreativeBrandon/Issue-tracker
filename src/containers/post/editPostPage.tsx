@@ -2,7 +2,7 @@ import * as React from 'react'
 import { bindActionCreators, Dispatch } from 'redux'
 import { connect } from 'react-redux'
 import * as actions from '../../actions'
-import { EntitiesState, NotificationsState, Post, StoreState } from '../../models'
+import { EntitiesState, Post, StoreState } from '../../models'
 import { store } from '../../store'
 import {
     HeaderComponent,
@@ -14,7 +14,6 @@ import './editPostPage.css'
 
 interface EditPostPageProps {
     entities: EntitiesState
-    notifications: NotificationsState
     actions: any
     match: any
 }
@@ -25,7 +24,7 @@ class EditPostPage extends React.Component<EditPostPageProps, EditPostPageState>
 
     editingPost: Post;
 
-    constructor(){
+    constructor() {
         super()
     }
 
@@ -54,9 +53,9 @@ class EditPostPage extends React.Component<EditPostPageProps, EditPostPageState>
 const mapStateToProps = (state: StoreState) => {
     return {
         entities: {
+            notifications: state.entities.notifications,
             posts: state.entities.posts
-        },
-        notifications: state.notifications
+        }
     }
 }
 

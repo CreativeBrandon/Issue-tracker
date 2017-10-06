@@ -1,4 +1,4 @@
-import { PostsByIds } from './'
+import { NotificationsState, PostsByIds } from './'
 
 export interface EntitiesPost {
     allIds: number[]
@@ -7,4 +7,5 @@ export interface EntitiesPost {
 
 export interface EntitiesState {
     posts: EntitiesPost
+    notifications: NotificationsState
 }
