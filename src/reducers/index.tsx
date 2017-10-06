@@ -1,2 +1,2 @@
-export * from './entitiesReducer';
-export * from './ui/ui'
+export * from './entitiesReducer'
+export * from './notifications/notifications'

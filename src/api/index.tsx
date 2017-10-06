@@ -6,19 +6,18 @@ interface JsonData {
 
 const data: JsonData = require('./data.json')
 
-// In the Real World hit Endpoint
+const handleResponse = (res: Response): Response => {
+    if (!res.ok) { throw Error(res.statusText) }
+    return res
+}
+
 export const fetchInitialPosts = () => {
     return data.posts
 }
 
 export const fetchPosts = (url: string) => {
     return fetch(url)
-        .then((res) => {
-            if (!res.ok) { throw Error(res.statusText) }
-            return res
-        })
-        .then((res) => {
-            return res.json()
-        })
+        .then(handleResponse)
+        .then(response => response.json())
         .catch((err) => { throw Error(err) })
 }

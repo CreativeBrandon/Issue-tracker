@@ -2,14 +2,7 @@ import * as constants from '../constants';
 import { Dispatch } from 'redux'
 import * as Api from '../api'
 import { Post, StoreState } from '../models'
-
-// Flux Safe Action
-export interface FSAction {
-    type: string
-    payload?: {} | Error
-    error?: Error
-    meta?: {}
-}
+import { FSAction } from './fsaction'
 
 export interface AddPost extends FSAction {
     type: constants.ADD_POST
@@ -71,4 +64,4 @@ export function fetchPosts() {
     }
 }
 
-export type PostActions = AddPost | RequestPosts | ReceivedPosts
+export type PostActions = AddPost | UpdatePost | RequestPosts | ReceivedPosts

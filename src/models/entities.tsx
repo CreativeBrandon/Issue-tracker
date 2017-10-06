@@ -1,8 +1,10 @@
+import { PostsByIds } from './'
+
 export interface EntitiesPost {
     allIds: number[]
-    byIds: {}
+    byIds: PostsByIds
 }
 
-export interface Entities {
+export interface EntitiesState {
     posts: EntitiesPost
 }

@@ -3,6 +3,8 @@ import { Dispatch } from 'redux'
 import * as actions from '../../actions'
 import { Post, StoreState } from '../../models'
 
+const randomId = () =>  Math.floor(Math.random() * (100 - 0) + 0)
+
 export const submit = (post: Readonly<Post>, dispatch: Dispatch<StoreState>, props: {}) => {
 
     if (!post) {
@@ -10,7 +12,16 @@ export const submit = (post: Readonly<Post>, dispatch: Dispatch<StoreState>, pro
             _error: 'All values are empty'
         })
     } else {
+        const notification = {
+            id: randomId(),
+            postId: post.id,
+            message: 'Post Updated',
+            read: false,
+            isDeleted: false
+        }
+
         dispatch(actions.updatePost(post))
+        dispatch(actions.addNotification(notification))
         alert('form submitted')
     }
 }

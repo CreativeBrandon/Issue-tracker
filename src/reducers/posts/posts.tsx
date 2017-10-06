@@ -1,5 +1,5 @@
 import { AddPost, ReceivedPosts, UpdatePost } from '../../actions';
-import { Post, EntitiesPost } from '../../models';
+import { Post, PostsByIds, EntitiesPost } from '../../models';
 import { ADD_POST, RECEIVE_POSTS, UPDATE_POST } from '../../constants';
 
 const post = (state: Post, action: AddPost): Post => {
@@ -12,7 +12,7 @@ const post = (state: Post, action: AddPost): Post => {
     }
 }
 
-const byIds = (state: object = {}, action: AddPost): object => {
+const byIds = (state: PostsByIds = {}, action: AddPost): PostsByIds => {
     const { type, payload } = action
 
     switch (type) {

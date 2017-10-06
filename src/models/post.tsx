@@ -12,4 +12,8 @@ export interface Post extends PostBase{
     user: UserModel
 }
 
+export interface PostsByIds {
+    [index: number]: Post
+}
+
 export type IState = Post[]

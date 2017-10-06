@@ -1,1 +1,5 @@
-export interface AppUI {}
+import { UiNotificationsState } from './'
+
+export interface AppUiState {
+    notifications: UiNotificationsState
+}

@@ -1,7 +1,8 @@
-import { AppUI, Entities } from '.';
+import { AppUiState, EntitiesState, NotificationsState } from '.'
 
 // Application State
 export interface StoreState {
-    ui: AppUI
-    entities: Entities
+    ui: AppUiState
+    entities: EntitiesState
+    notifications: NotificationsState
 }
